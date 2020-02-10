@@ -1,0 +1,303 @@
+/**
+ * This injects Tailwind's base styles, which is a combination of
+ * Normalize.css and some additional base styles.
+ *
+ * You can see the styles here:
+ * https://github.com/tailwindcss/tailwindcss/blob/master/css/base.css
+ *
+ * If using `postcss-import`, use this import instead:
+ *
+ * @import "tailwindcss/base";
+ */
+ @tailwind base;
+
+    @font-face {
+        font-family: Montserrat;
+        src: url(../fonts/montserra/Montserrat-Black.otf) format("otf");
+    }
+    @font-face {
+        font-family: Montserrat;
+        src: url(../fonts/montserra/Montserrat-Bold.otf) format("otf");
+    }
+ /**
+  * This injects any component classes registered by plugins.
+  *
+  * If using `postcss-import`, use this import instead:
+  *
+  * @import "tailwindcss/components";
+  */
+ @tailwind components;
+
+ /**
+  * Here you would add any of your custom component classes; stuff that you'd
+  * want loaded *before* the utilities so that the utilities could still
+  * override them.
+  *
+  * Example:
+  *
+  * .btn { ... }
+  * .form-input { ... }
+  *
+  * Or if using a preprocessor or `postcss-import`:
+  *
+  * @import "components/buttons";
+  * @import "components/forms";
+  */
+    .btn-global {
+        @apply border rounded-full pt-1 pb-1 pl-4 pr-4;
+    }
+    .btn-border-orange{
+        @apply text-langoostOrange80 border-langoostOrange80;
+    }
+    .btn-bg-orange {
+        @apply bg-langoostOrange80 border-langoostOrange80 text-langoostTextWhite;
+    }
+
+    .mega-menu{
+        @apply hidden absolute text-left left-0 w-full;
+    }
+    .hoverable{
+        @apply static;
+    }
+    .toggle-input{
+        @apply hidden;
+    }
+
+
+    .item-menu-prof-level1{
+        @apply relative block py-6 px-4 text-xs font-bold text-langoostTextWhite;
+    }
+
+    .item-menu-prof-level1:hover{
+        @apply text-langoostOrange80;
+    }
+    .item-menu-prof-level1:active{
+        @apply text-langoostOrange80;
+    }
+    .item-menu-prof-level1:lg{
+        @apply p-6 text-base
+    }
+    .item-menu-prof-dropdown{
+        @apply text-langoostViolet80
+    }
+    .item-menu-prof-dropdown:hover{
+         @apply text-langoostOrange80;
+     }
+    .item-menu-prof-dropdown:active{
+        @apply text-langoostOrange80;
+    }
+
+    /**** For button toggle on header ****/
+
+    .switch{
+        @apply relative inline-block rounded-full;
+    }
+
+
+    .switch input{
+        @apply hidden;
+    }
+
+    .slider, .slider-prof{
+        @apply absolute bg-langoostVioletDark80 inset-0 cursor-pointer;
+    }
+
+    .slider:before{
+        @apply absolute rounded-full;
+    }
+
+
+
+
+/*------ ADDED CSS ---------*/
+
+.on{
+    @apply block;
+}
+.off{
+    @apply block;
+}
+
+
+.on, .off{
+    @apply rounded-full absolute;
+}
+
+
+input:checked+ .slider .on{
+    @apply block text-langoostViolet80;
+}
+
+
+input:checked + .slider .off{
+    @apply block;
+}
+/*--------- END --------*/
+
+
+    /* Rounded sliders */
+
+    .slider.round{
+        @apply rounded-full;
+    }
+
+    .slider.round:before {
+        @apply rounded-full;
+    }
+ /**
+  * This injects all of Tailwind's utility classes, generated based on your
+  * config file.
+  *
+  * If using `postcss-import`, use this import instead:
+  *
+  * @import "tailwindcss/utilities";
+  */
+ @tailwind utilities;
+ 
+ /**
+  * Here you would add any custom utilities you need that don't come out of the
+  * box with Tailwind.
+  *
+  * Example :
+  *
+  * .bg-pattern-graph-paper { ... }
+  * .skew-45 { ... }
+  *
+  * Or if using a preprocessor or `postcss-import`:
+  *
+  * @import "utilities/background-patterns";
+  * @import "utilities/skew-transforms";
+  */
+
+.switch{
+    height: 33px;
+    width: 250px;
+    border: 1px solid #727272;
+}
+.slider, .slider-prof {
+    --transition-duration: 0.4ms;
+    -webkit-transition-duration: 0.4ms;
+    transition-duration: 0.4ms;
+    -webkit-transition-duration: var(--transition-duration);
+    transition-duration: var(--transition-duration);
+}
+
+.slider:before{
+    background-color: #ffffff;
+    --transition-duration: 0.4ms;
+    -webkit-transition-duration: 0.4ms;
+    transition-duration: 0.4ms;
+    -webkit-transition-duration: var(--transition-duration);
+    transition-duration: var(--transition-duration);
+}
+
+input:checked + .slider {
+    background-color: #402955;
+}
+
+input:checked + .slider:before{
+    -webkit-transform: translateX(55px);
+    transform: translateX(55px);
+}
+
+/*------ ADDED CSS ---------*/
+
+.on{
+   color: #ffffff;
+}
+.off{
+    color: #ffffff;
+}
+
+
+.on, .off{
+
+    -webkit-transform: translateX(50%);
+    transform: translateX(50%);
+    font-size: 0.75rem;
+    top: 0.2rem;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+/*--------- END --------*/
+
+.on{
+    left: -29px;
+}
+.off{
+    left: 68px;
+}
+input + .slider .off, input + .slider .on{
+    color: #ffffff;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 107px;
+    left: -46px;
+    bottom: 2px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.button-strip {
+    position: absolute;
+    top: -15px;
+    left: -100px;
+    width: 250px;
+    height: 32px;
+    border-radius: 5rem;
+    display: flex;
+    border: 1px solid #727272;
+    padding: 3px 3px;
+}
+
+.strip-button {
+    background-color: #402955;
+    color: #ffffff;
+    width: 50%;
+    height: 100%;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 25px;
+    transition: background-color .4s linear, color .2s linear;
+    cursor: pointer;
+    border-radius: 5rem;
+}
+
+.strip-button span {
+    color: inherit;
+}
+#btnToggle{
+    position: relative;
+    display: inline-block;
+}
+
+.strip-button-text {
+    font-weight: bold;
+    font-size: 0.65rem;
+    color: #402955;
+    margin: 0px;
+    padding: 0px;
+}
+
+.active-strip-button {
+    background-color: #ffffff;
+    color: #402955;
+    border-radius: 5rem;
+}
+
+header.particulier .strip-button{
+    background-color: #ffffff;
+    color: #402955;
+}
+header.particulier .active-strip-button{
+    background-color: #402955;
+    color: #ffffff;
+}
